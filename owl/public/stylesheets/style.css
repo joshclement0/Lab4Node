@@ -19,6 +19,7 @@ main{
   font-weight: bold;
   padding:0;
   width:100%;
+  min-height:85%;
 }
 .TopMenuBar{
   background-color: grey;
@@ -36,8 +37,8 @@ main{
   background-repeat: no-repeat;
   background-size: cover;
   width:50%;
-  min-height: 85%;
   float:left;
+  height:100%;
   
 }
 #dictionary{
@@ -45,8 +46,9 @@ main{
   background-repeat: repeat-y;
   background-size: cover;
   width:50%;
+  height:100%;
   float:left;
-  min-height:85%;
+  
 }
 form{
   padding-top: 20px;
