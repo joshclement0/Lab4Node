@@ -1,0 +1,53 @@
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+.User-list {
+  list-style: none;
+  background-color: grey;
+}
+main{
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 77px;
+  text-align: center;
+  color:blue;
+  font-size: 20px;
+  font-weight: bold;
+  padding:0;
+  width:100%;
+}
+.TopMenuBar{
+  background-color: grey;
+  margin:0;
+  padding:0;
+  text-align: center;
+  font-size: 40px;
+  position:fixed;
+  width:100%;
+  height:75px;
+  top:3px;
+}
+#city{
+  background-image: url("https://images.ecosia.org/FXCNNJNBimiBNW_A42cacw_TAgg=/0x390/smart/http%3A%2F%2Fth08.deviantart.net%2Ffs70%2FPRE%2Fi%2F2012%2F100%2F3%2F2%2Fsea_sun_black_and_white_by_florent40-d4vnbko.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width:50%;
+  min-height: 85%;
+  float:left;
+  
+}
+#dictionary{
+  background-image: url("https://images.ecosia.org/Pd2AjsG6uW0RacmCPSnKrIef2cU=/0x390/smart/https%3A%2F%2Fblog.udemy.com%2Fwp-content%2Fuploads%2F2014%2F04%2Fbigstock-Dictionary-Page-With-Word-In-F-31182644.jpg");
+  background-repeat: repeat-y;
+  background-size: cover;
+  width:50%;
+  float:left;
+  min-height:85%;
+}
+form{
+  padding-top: 20px;
+}

@@ -1,0 +1,78 @@
+<html>
+
+<head>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <title>City+Dictionary</title>
+    <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+</head>
+
+<body>
+    <div class="TopMenuBar">
+        Dictionary |   Cities
+    </div>
+    <main>
+        <span id="beginning"></span>
+        <div id="dictionary">
+            <form>
+                Enter a dictionary search: <input type="text" id="owlform" value=""><br>
+                <button id="owlbutton" type="submit">Submit</button>
+                </form>
+                <span id="owldef"></span>
+        </div>
+        <div id="city">
+            <form>
+                Enter a city Name: <input type="text" id="cityField" value=""><br>
+                <button id="citySubmit" type="submit">Submit</button>
+                </form>
+                <span id="citylist"></span><span id="weatherList"></span>
+        </div>
+    </main>
+    <script>
+        /*global $*/
+        $("#owlbutton").click(function(event) {
+            console.log("click from owl recieved");
+            event.preventDefault();
+            var url = "owl?q=" + $("#owlform").val();
+            $.getJSON(url, function(data) {
+                console.log(data)
+                var everything = "Definition: <ul class='User-list'>";
+                $.each(data, function(i, item) {
+                    everything += "<li>+" + data[i].defenition + "</li>";
+                });
+                everything += "</ul>";
+                console.log(everything);
+                $("#owldef").html(everything);
+            });
+        });
+        $("#cityField").keyup(function(event) {
+            console.log("keyup from city logged")
+            event.preventDefault();
+            var url = "cityFinder?q=" + $("#cityField").val();
+            $.getJSON(url, function(data) {
+                var everything = "Suggestions:<ul class='User-list'>";
+                $.each(data, function(i, item) {
+                    everything += "<li>+" + data[i].city + "</li>";
+                });
+                everything += "</ul>";
+                $("#citylist").html(everything);
+            });
+        });
+        $("#citySubmit").click(function(event) {
+            console.log("click from city logged")
+            event.preventDefault();
+            var url = "cityWeather?q=" + $("#cityField").val();
+            $.getJSON(url, function(data) {
+                var everything = "Weather for " + $("#cityField").val();
+                everything += "<ul class='User-list'><li>Weather: " + data['weather'][0]['main'];
+                everything += "<li>Low: " + data['main']['temp_min'] + "&#8457; | High: " + data['main']['temp_max'] + "&#8457;"
+                everything += "<li>Humidity: " + data['main']['humidity'] + "%";
+                everything += "<li>Wind: " + data['wind']['speed'] + " mph";
+                everything += "</ul>";
+                $("#weatherList").html(everything);
+            });
+            $("#citylist").html("");
+        });
+    </script>
+</body>
+
+</html>
